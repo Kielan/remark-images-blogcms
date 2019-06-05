@@ -1,4 +1,4 @@
-const axios = require(`axios`)
+const axios = require(`axios`);
 
 const getBase64Img = async url => {
   const response = await axios({
