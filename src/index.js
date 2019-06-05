@@ -24,6 +24,8 @@ module.exports = async (
   // This will only work for markdown syntax image tags
   const markdownImageNodes = select(markdownAST, `image`)
 
+  const rawHtmlNodes = select(markdownAST, `html`)
+
   const generateImagesAndUpdateNode = async function(node, resolve) {
     const cacheKey = `remark-images-images-blogcms-${fileName}-${optionsHash}`
     const options = _.defaults(pluginOptions, defaults)
