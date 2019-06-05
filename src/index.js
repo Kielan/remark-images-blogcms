@@ -143,7 +143,8 @@ module.exports = async (
     markdownImageNodes.map(
       node =>
         new Promise(async (resolve, reject) => {
-          if (node.url.indexOf(`images.ctfassets.net`) !== -1) {
+        //  if (node.url.indexOf(`images.ctfassets.net`) !== -1) {
+            console.log('generateImagesAndUpdateNode...')
             const rawHTML = await generateImagesAndUpdateNode(node, resolve)
 
             if (rawHTML) {
@@ -152,10 +153,10 @@ module.exports = async (
               node.value = rawHTML
             }
             return resolve(node)
-          } else {
+          //} else {
             // Image isn't relative so there's nothing for us to do.
-            return resolve()
-          }
+        //    return resolve()
+        //  }
         })
     )
   ).then(markdownImageNodes =>
